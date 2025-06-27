@@ -1,4 +1,7 @@
-# Welcome to your Expo app 👋
+# Animated-Segmented-Control
+
+![Segmented-Contro](https://github.com/user-attachments/assets/e2ed0470-9596-4ac2-aabc-e272a4fa2753)
+
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
