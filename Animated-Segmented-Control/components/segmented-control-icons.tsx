@@ -11,14 +11,22 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { ColorPalette } from './color-palette';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-type SegmentedControlProps = {
-  options: string[];
+type IoniconName = React.ComponentProps<typeof Ionicons>['name'];
+
+type SegmentedControlIconsProps = {
+  options: {
+    id: number,
+    label: string,
+    heading?: string,
+    icon: IoniconName,
+  }[];
   selectedOption: string;
   onOptionPress?: (option: string) => void;
 };
 
-const SegmentedControl: React.FC<SegmentedControlProps> = React.memo(
+const SegmentedControlIcons: React.FC<SegmentedControlIconsProps> = React.memo(
   ({ options, selectedOption, onOptionPress }) => {
     const { width: windowWidth } = useWindowDimensions();
 
@@ -31,7 +39,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = React.memo(
     const rStyle = useAnimatedStyle(() => {
       return {
         left: withTiming(
-          itemWidth * options.indexOf(selectedOption) + internalPadding / 2
+          itemWidth * options.findIndex(option => option.label === selectedOption) + internalPadding / 2
         ),
       };
     }, [selectedOption, options, itemWidth]);
@@ -41,6 +49,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = React.memo(
         style={[
           styles.container,
           {
+            height: options.some(option => option.heading) ? 65 : 55,
             width: segmentedControlWidth,
             borderRadius: 10,
             paddingLeft: internalPadding / 2,
@@ -60,9 +69,9 @@ const SegmentedControl: React.FC<SegmentedControlProps> = React.memo(
           return (
             <TouchableOpacity
               onPress={() => {
-                onOptionPress?.(option);
+                onOptionPress?.(option.label);
               }}
-              key={option}
+              key={option.id}
               style={[
                 {
                   width: itemWidth,
@@ -70,7 +79,13 @@ const SegmentedControl: React.FC<SegmentedControlProps> = React.memo(
                 styles.labelContainer,
               ]}
             >
-              <Text style={styles.label}>{option}</Text>
+              <View style={{alignItems: 'center',}}>
+                <Ionicons name={option.icon} size={24} color="black" />
+                {
+                  option.heading &&
+                  <Text style={styles.label}>{option.heading}</Text>
+                }
+              </View>
             </TouchableOpacity>
           );
         })}
@@ -82,7 +97,6 @@ const SegmentedControl: React.FC<SegmentedControlProps> = React.memo(
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 55,
     backgroundColor: ColorPalette.baseGray05,
   },
   activeBox: {
@@ -108,4 +122,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { SegmentedControl };
+export { SegmentedControlIcons, IoniconName };
