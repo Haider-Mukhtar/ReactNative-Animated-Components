@@ -1,4 +1,11 @@
-# Welcome to your Expo app 👋
+# Animated Drawer Navigation Expo
+
+<img 
+  src="https://github.com/user-attachments/assets/6a5be04a-bca7-4e4a-8d0b-185635af4a7d" 
+  alt="Animated Drawer Navigation" 
+  width="300" 
+  height="600" 
+/>
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
