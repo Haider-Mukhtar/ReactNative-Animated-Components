@@ -1,7 +1,12 @@
 ﻿# ReactNative-Animated-Components
 
  ## Animated-Segmented-Control
- ![Segmented-Contro](https://github.com/user-attachments/assets/39812aea-080b-437b-a44f-3c007dd5d06a)
+ <img 
+  src="https://github.com/user-attachments/assets/39812aea-080b-437b-a44f-3c007dd5d06a" 
+  alt="Animated Segmented Control" 
+  width="300" 
+  height="600" 
+/>
 
 ## Animated-Drawer-Navigation-Expo
 <img 
