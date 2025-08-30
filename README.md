@@ -16,3 +16,13 @@
   height="600" 
 />
 
+## Interactive-Resizable-Split-View
+<img 
+  src="https://github.com/user-attachments/assets/b8d05ad5-6908-4ba5-bc63-61e2e028c7c0" 
+  alt="Animated Drawer Navigation" 
+  width="300" 
+  height="600" 
+/>
+
+
+
